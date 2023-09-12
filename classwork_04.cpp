@@ -34,9 +34,8 @@ complex operator +(complex a)
 complex operator *(complex a)
 {
     complex mult;
-    mult.x=(x*a.x)-(x*a.y);
-    
-    mult.y=(y*a.x)+(y*a.y);
+    mult.x=(x*a.x)-(y*a.x);
+    mult.y=(y*a.y)+(x*a.y);
     return mult;
 }
 };
@@ -49,6 +48,8 @@ cin>>c1;
 cout<<"Enter 2nd complex number :";
 cin>>c2;
 c3=c1+c2;
-
+c4=c1*c2;
+cout<<c3;
+cout<<c4;
 return 0;
 }
