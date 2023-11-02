@@ -3,13 +3,13 @@ Implement a class Complex which represents the Complex Number data type. Impleme
 the following
 1. Constructor (including a default constructor which creates the complex number 0+0i).
 2. Overloaded operator+ to add two complex numbers.
-3. Overloaded operator* to multiply two complex numbers.4. Overloaded << and >> to 
-print and read Complex Numbers.
+3. Overloaded operator* to multiply two complex numbers.
+4. Overloaded << and >> to print and read Complex Numbers.
 */
 
 
 #include <iostream>
-
+using namespace std;
 class Complex {
 private:
     double real;
@@ -30,7 +30,7 @@ public:
     }
 
     // Overloaded operator<< to print complex numbers
-    friend std::ostream& operator<<(std::ostream& os, const Complex& complex) {
+    friend ostream& operator<<(ostream& os, const Complex& complex) {
         os << complex.real;
         if (complex.imaginary >= 0) {
             os << " + " << complex.imaginary << "i";
@@ -41,10 +41,10 @@ public:
     }
 
     // Overloaded operator>> to read complex numbers
-    friend std::istream& operator>>(std::istream& is, Complex& complex) {
-        std::cout << "Enter real part: ";
+    friend istream& operator>>(istream& is, Complex& complex) {
+        cout << "Enter real part: ";
         is >> complex.real;
-        std::cout << "Enter imaginary part: ";
+        cout << "Enter imaginary part: ";
         is >> complex.imaginary;
         return is;
     }
@@ -53,17 +53,17 @@ public:
 int main() {
     Complex a, b, result;
     
-    std::cout << "Enter the first complex number:" << std::endl;
-    std::cin >> a;
+    cout << "Enter the first complex number:" << endl;
+    cin >> a;
 
-    std::cout << "Enter the second complex number:" << std::endl;
-    std::cin >> b;
+    cout << "Enter the second complex number:" << endl;
+    cin >> b;
 
     result = a + b;
-    std::cout << "Sum: " << result << std::endl;
+    cout << "Sum: " << result << endl;
 
     result = a * b;
-    std::cout << "Product: " << result << std::endl;
+    cout << "Product: " << result << endl;
 
     return 0;
 }
