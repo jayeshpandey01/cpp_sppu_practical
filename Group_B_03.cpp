@@ -6,48 +6,53 @@ an integer array and a float array.
 #include <iostream>
 using namespace std;
 
-template <typename T>
-void selectionSort(T arr[], int size) {
-    for (int i = 0; i < size - 1; i++) {
-        int minIndex = i;
-        for (int j = i + 1; j < size; j++) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex = j;
+int n;
+
+template <class T>
+void slection(T num[]) {
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+            if (num[i] > num[j]) {
+                swap(num[i], num[j]);
             }
         }
-        if (minIndex != i) {
-            swap(arr[i], arr[minIndex]);
-        }
     }
-}
-
-template <typename T>
-void printArray(const T arr[], int size) {
-    for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
+    cout<<"Swap value are: "<<endl;
+    for (int i = 0; i<n; i++) {
+        cout<<num[i]<<" ";
     }
-    cout << endl;
 }
 
 int main() {
-    const int intSize = 5;
-    const int floatSize = 6;
+    cout << "Enter number of elements in the array: ";
+    cin >> n;
 
-    int intArray[intSize] = {5, 2, 9, 1, 5};
-    float floatArray[floatSize] = {3.14, 1.23, 2.71, 0.88, 5.55, 4.0};
+    int a[n];
+    float b[n];
+    int num;
 
-    cout << "Original Integer Array: ";
-    printArray(intArray, intSize);
-    selectionSort(intArray, intSize);
-    cout << "Sorted Integer Array: ";
-    printArray(intArray, intSize);
+    cout << "1. In integer 2.In float" << endl;
+    cin >> num;
 
-    cout << "Original Float Array: ";
-    printArray(floatArray, floatSize);
-    selectionSort(floatArray, floatSize);
-    cout << "Sorted Float Array: ";
-    printArray(floatArray, floatSize);
+    if (num == 1) {
+        cout << "Enter value of integer: " << endl;
+        for (int i = 0; i < n; i++) {
+            
+            cin >> a[i];
+        }
+        slection(a);
+    } else if (num == 2) {
+        cout << "Enter value for float: " << endl;
+        for (int i = 0; i < n; i++) {
+            
+            cin >> b[i];
+        }
+        slection(b);
+    } else {
+        return 0;
+    }
 
     return 0;
 }
+
 /*Created by jayesh pandey*/
